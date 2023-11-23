@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\API\PersonaController ;
+use App\Http\Controllers\API\PersonaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('v1/personas')->group(function () {
-    Route::get('/',[ PersonaController::class, 'get']);
+//Route::prefix('v1/personas')->group(function () {
+//    Route::get('/',[PersonaController::class, 'get']);
+// });
+
+ Route::prefix('v1/personas')->group(function () {
+    Route::get('/',[PersonaController::class, 'get']);
+    Route::post('/',[PersonaController::class, 'create']);
  });
