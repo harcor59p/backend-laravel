@@ -25,5 +25,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
  Route::prefix('v1/personas')->group(function () {
     Route::get('/',[PersonaController::class, 'get']);
+    Route::get('/{id}',[PersonaController::class, 'getById']);
+    Route::put('/{id}',[PersonaController::class, 'update']);
+    Route::delete('/{id}',[PersonaController::class, 'delete']);
     Route::post('/',[PersonaController::class, 'create']);
  });
